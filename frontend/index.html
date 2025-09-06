@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fake News Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>AI Fake News Detector</h1>
+                </div>
+                <p class="subtitle">Powered by Gemini AI & HuggingFace</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section">
+                <div class="input-container">
+                    <div class="input-header">
+                        <i class="fas fa-search"></i>
+                        <span>Enter news text, article, or URL to verify</span>
+                    </div>
+                    <textarea 
+                        id="news-input" 
+                        placeholder="Paste your news text here or enter a URL to fact-check..."
+                        rows="4"
+                    ></textarea>
+                    <div class="input-actions">
+                        <div class="quick-examples">
+                            <span class="examples-label">Quick Examples:</span>
+                            <button class="example-btn" data-text="Narendra Modi is PM of India">Political Fact</button>
+                            <button class="example-btn" data-text="The earth is flat">Common Myth</button>
+                            <button class="example-btn" data-text="COVID-19 vaccines contain microchips">Conspiracy Theory</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="verify-btn" class="verify-btn">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Analyze Now</span>
+                            </button>
+                            <button id="clear-btn" class="clear-btn">
+                                <i class="fas fa-times"></i>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading-area" class="loading-area hidden">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Analyzing with Gemini AI...</p>
+                </div>
+            </div>
+
+            <div id="results-area" class="results-area hidden">
+                <!-- Results will be displayed here -->
+            </div>
+
+            <div id="history-section" class="history-section hidden">
+                <div class="history-header">
+                    <i class="fas fa-history"></i>
+                    <span>Recent Analysis History</span>
+                    <button id="clear-history-btn" class="clear-history-btn">
+                        <i class="fas fa-trash"></i>
+                        Clear
+                    </button>
+                </div>
+                <div id="history-list" class="history-list">
+                    <!-- History items will be displayed here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
