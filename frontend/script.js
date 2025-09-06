@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearBtn = document.getElementById('clear-btn');
     const loadingArea = document.getElementById('loading-area');
     const resultsArea = document.getElementById('results-area');
-    const exampleBtns = document.querySelectorAll('.example-btn');
     const historySection = document.getElementById('history-section');
     const historyList = document.getElementById('history-list');
     const clearHistoryBtn = document.getElementById('clear-history-btn');
@@ -12,21 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStep = 0;
     const steps = document.querySelectorAll('.step');
     let analysisHistory = JSON.parse(localStorage.getItem('analysisHistory') || '[]');
-
-    // Example button functionality
-    exampleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const exampleText = btn.getAttribute('data-text');
-            newsInput.value = exampleText;
-            newsInput.focus();
-            
-            // Add visual feedback
-            btn.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                btn.style.transform = 'scale(1)';
-            }, 150);
-        });
-    });
 
     // Clear button functionality
     clearBtn.addEventListener('click', () => {

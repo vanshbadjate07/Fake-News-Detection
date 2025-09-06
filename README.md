@@ -1,28 +1,21 @@
 # 🛡️ AI Fake News Detector
 
-A powerful, real-time fake news detection system powered by advanced AI models including Google Gemini and HuggingFace transformers.
-
-![AI Fake News Detector](https://img.shields.io/badge/AI-Powered-blue) ![Status](https://img.shields.io/badge/Status-Production%20Ready-green) ![License](https://img.shields.io/badge/License-MIT-yellow)
+A real-time fake news detection system powered by AI to help verify news claims and articles.
 
 ## 🌟 Features
 
-- **🤖 AI-Powered Analysis**: Uses Google Gemini 1.5 Flash for comprehensive fact-checking
-- **⚡ Real-time Verification**: Get results in 2-3 seconds
-- **🎯 High Accuracy**: Advanced prompt engineering for precise fact verification
-- **📱 Modern UI**: Clean, responsive design with gradient backgrounds
-- **🔄 Fallback System**: HuggingFace transformers as backup verification
-- **📊 Confidence Scoring**: Detailed confidence percentages for each analysis
-- **🌐 Multi-format Support**: Analyze text, news articles, and claims
+- **🤖 AI-Powered Analysis**: Advanced fact-checking using multiple AI models
+- **⚡ Real-time Verification**: Get results in seconds
+- **📱 Modern UI**: Clean, responsive design
+- **📊 Confidence Scoring**: Detailed accuracy percentages
+- **📝 Analysis History**: Track your previous fact-checks
 
-## 🏗️ Architecture
+## 🏗️ Tech Stack
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │   Backend       │    │   AI Services   │
-│   (HTML/CSS/JS) │◄──►│   (FastAPI)     │◄──►│   Gemini AI     │
-│                 │    │                 │    │   HuggingFace   │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: FastAPI (Python)
+- **AI**: Google Gemini, HuggingFace
+- **Deployment**: Netlify + Render
 
 ## 🛠️ Technologies Used
 
@@ -48,48 +41,38 @@ A powerful, real-time fake news detection system powered by advanced AI models i
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Python 3.11+
-- Google Gemini API Key
-- HuggingFace API Token
+### Local Development
 
-### Installation
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/vanshbadjate07/Fake-News-Detection.git
+   cd Fake-News-Detection
+   ```
 
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd FakeNewsDetector
-```
+2. **Backend Setup**:
+   ```bash
+   cd backend
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-2. **Set up Backend**
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+3. **Add API Keys** (create `.env` file in backend folder):
+   ```env
+   GOOGLE_GEMINI_API_KEY=your_key_here
+   HUGGINGFACE_API_TOKEN=your_token_here
+   ```
 
-3. **Configure Environment Variables**
-```bash
-# Create .env file in backend folder
-GOOGLE_GEMINI_API_KEY=your_gemini_api_key
-HUGGINGFACE_API_TOKEN=your_huggingface_token
-```
+4. **Run the application**:
+   ```bash
+   # Backend
+   python main.py
+   
+   # Frontend (new terminal)
+   cd ../frontend
+   python -m http.server 3000
+   ```
 
-4. **Start Backend Server**
-```bash
-python main.py
-```
-
-5. **Start Frontend Server**
-```bash
-cd ../frontend
-python -m http.server 3000
-```
-
-6. **Access Application**
-- Open browser: `http://localhost:3000`
-- API Documentation: `http://localhost:8000/docs`
 
 ## 📖 API Documentation
 
@@ -171,95 +154,41 @@ FakeNewsDetector/
 | `GOOGLE_GEMINI_API_KEY` | Google Gemini API key | Yes |
 | `HUGGINGFACE_API_TOKEN` | HuggingFace API token | Yes |
 
-### API Keys Setup
+### 🔑 API Keys
 
-1. **Google Gemini API**:
-   - Visit [Google AI Studio](https://makersuite.google.com/)
-   - Create API key
-   - Add to `.env` file
+Get free API keys from:
+- [Google AI Studio](https://makersuite.google.com/app/apikey) - Gemini API
+- [HuggingFace](https://huggingface.co/) - AI Models
 
-2. **HuggingFace API**:
-   - Visit [HuggingFace](https://huggingface.co/)
-   - Create account and generate token
-   - Add to `.env` file
+## 🌐 Live Demo
+
+**Frontend**: [https://fake-newsdetection.netlify.app/](https://fake-newsdetection.netlify.app/)
 
 ## 🚀 Deployment
 
-### Local Development
-```bash
-# Backend
-cd backend && source venv/bin/activate && python main.py
+- **Frontend**: Netlify (Static hosting)
+- **Backend**: Render (Python hosting)
+- **Environment**: Production-ready with HTTPS
 
-# Frontend
-cd frontend && python -m http.server 3000
-```
+## 🧪 Usage
 
-### Production Deployment
-- Use Docker containers
-- Deploy backend on cloud platforms (AWS, GCP, Azure)
-- Serve frontend via CDN or static hosting
-
-## 🧪 Testing
-
-### Manual Testing
-1. Start both servers
-2. Open `http://localhost:3000`
-3. Test with various claims:
-   - Current events
-   - Historical facts
-   - Common misconceptions
-   - Conspiracy theories
-
-### API Testing
-```bash
-curl -X POST "http://localhost:8000/api/analyze/" \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Your claim here"}'
-```
-
-## 🔒 Security
-
-- API keys stored in environment variables
-- CORS enabled for cross-origin requests
-- Input validation with Pydantic
-- Rate limiting recommended for production
-
-## 📈 Performance
-
-- **Response Time**: 2-3 seconds average
-- **Accuracy**: 90%+ for factual claims
-- **Throughput**: Handles concurrent requests
-- **Scalability**: Async architecture for high load
+1. Enter news text or article in the input field
+2. Click "Analyze Now" to get AI verification
+3. View results with confidence scores
+4. Check analysis history for previous searches
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+Feel free to fork this repository and submit pull requests for improvements.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Vansh Badjate**
-- GitHub: [@vanshbadjate](https://github.com/vanshbadjate)
-- Email: vansh@example.com
-
-## 🙏 Acknowledgments
-
-- Google for Gemini AI API
-- HuggingFace for transformer models
-- FastAPI team for excellent framework
-- Open source community
-
-## 📞 Support
-
-For support, email vansh@example.com or create an issue on GitHub.
+MIT License - feel free to use this project.
 
 ---
 
 **⭐ Star this repository if you found it helpful!**
+
+**👨‍💻 Author**
+
+**© 2025 Developed by [Vansh Badjate](https://github.com/vanshbadjate07)**
