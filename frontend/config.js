@@ -4,7 +4,7 @@ const CONFIG = {
     LOCAL_API_URL: 'http://127.0.0.1:8000',
     
     // For production deployment (update this with your deployed backend URL)
-    PRODUCTION_API_URL: 'https://your-backend-url.herokuapp.com',
+    PRODUCTION_API_URL: 'https://fake-news-detection-zxoh.onrender.com',
     
     // Auto-detect environment
     getApiUrl: function() {
